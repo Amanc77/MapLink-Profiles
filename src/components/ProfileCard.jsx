@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function ProfileCard({ profile }) {
   return (
-    <div className="flex justify-center items-center  bg-gray-900 ">
-      <div className="bg-gray-800 text-white shadow-lg rounded-lg p-4 w-80 transform transition-transform hover:scale-105 ">
+    <div className="flex justify-center items-center  bg-gray-900 rounded-md ">
+      <div className="bg-gray-800 text-white rounded-lg p-4 w-80  hover:scale-105 ">
         <div className="flex justify-center">
           <img
             src={profile.image}

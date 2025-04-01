@@ -1,26 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import useProfiles from "../hooks/userProfiles";
 import ProfileCard from "./ProfileCard";
-import SearchFilter from "./SearchFilter";
 
-function ProfileList() {
+function ProfileList({ searchQuery }) {
   const { profiles } = useProfiles();
-  const [filteredProfiles, setFilteredProfiles] = useState(profiles);
 
-  const handleSearch = (query) => {
-    const filtered = profiles.filter(
-      (profile) =>
-        profile.name.toLowerCase().includes(query.toLowerCase()) ||
-        profile.description.toLowerCase().includes(query.toLowerCase()) ||
-        profile.address.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredProfiles(filtered);
-  };
+  const filteredProfiles = profiles.filter(
+    (profile) =>
+      profile.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      profile.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      profile.address.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
-    <div>
-      <SearchFilter onSearch={handleSearch} />
-      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 ">
+    <div className="min-w-full">
+      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-x-10 gap-y-10">
         {filteredProfiles.map((profile) => (
           <ProfileCard key={profile.id} profile={profile} />
         ))}

@@ -3,7 +3,7 @@ import AppRoutes from "./components/AppRoutes";
 
 function App() {
   return (
-    <div className=" container h-auto bg-gray-900 text-white w-full">
+    <div className=" h-auto bg-gray-900 overflow-x-hidden">
       <AppRoutes />
     </div>
   );

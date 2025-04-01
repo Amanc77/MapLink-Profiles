@@ -10,7 +10,7 @@ function SearchFilter({ onSearch }) {
   };
 
   return (
-    <div className="mb-6 flex justify-center">
+    <div className="mb-6 flex justify-center w-[1000px]">
       <input
         type="text"
         value={query}
