@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.17",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "mapbox-gl": "^3.11.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.4.1",
     "tailwindcss": "^4.0.17"
   },
   "devDependencies": {
