@@ -1,21 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function ProfileCard({ profile, onViewDetails }) {
+function ProfileCard({ profile }) {
   return (
-    <div
-      className="bg-white shadow-md rounded-2xl p-4 mb-4 cursor-pointer"
-      onClick={() => onViewDetails(profile.id)}
-    >
-      <img
-        src={profile.photo}
-        alt={profile.name}
-        className="w-full h-48 object-cover rounded-2xl"
-      />
-      <h2 className="text-xl font-bold mt-2">{profile.name}</h2>
-      <p className="text-gray-600 mt-1">{profile.description}</p>
-      <button className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-2xl">
-        Summary
-      </button>
+    <div className="flex justify-center items-center  bg-gray-900 ">
+      <div className="bg-gray-800 text-white shadow-lg rounded-lg p-4 w-80 transform transition-transform hover:scale-105 ">
+        <div className="flex justify-center">
+          <img
+            src={profile.image}
+            alt={profile.name}
+            className="w-24 h-24 object-cover rounded-full border-4 border-gray-600"
+          />
+        </div>
+        <div className="text-center mt-3">
+          <h2 className="text-xl font-semibold">{profile.name}</h2>
+          <p className="text-gray-400">{profile.description}</p>
+          <p className="mt-1 text-gray-500">{profile.address}</p>
+          <Link to={`/profile/${profile.id}`}>
+            <button className="mt-3 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+              View Details
+            </button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

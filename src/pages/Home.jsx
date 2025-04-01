@@ -1,12 +1,11 @@
 import React from "react";
 import ProfileList from "../components/ProfileList";
-import SearchFilter from "../components/SearchFilter";
 
 function Home() {
   return (
-    <div className="p-4">
-      <SearchFilter />
-      <ProfileList profiles={[]} onViewDetails={() => {}} />
+    <div className="p-8">
+      <h1 className="text-3xl text-white mb-6 text-center">Profile List</h1>
+      <ProfileList />
     </div>
   );
 }

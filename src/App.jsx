@@ -1,16 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import ProfileDetails from "./pages/ProfileDetails";
+import AppRoutes from "./components/AppRoutes";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile/:id" element={<ProfileDetails />} />
-      </Routes>
-    </Router>
+    <div className=" container h-auto bg-gray-900 text-white w-full">
+      <AppRoutes />
+    </div>
   );
 }
 
