@@ -21,9 +21,9 @@ function Home() {
   return (
     <div className="flex flex-col items-center bg-gray-900 min-h-screen p-6">
       <SearchFilter onSearch={handleSearch} />
-      <div className="flex w-full mt-6 gap-6">
-        <div className="bg-gray-700 p-4 rounded-xl shadow-md basis-2/5">
-          <h2 className="text-lg font-semibold text-white mb-4 flex justify-center">
+      <div className="flex w-full  gap-6">
+        <div className="relative bg-gray-700 p-4 rounded-xl shadow-md basis-2/6 h-[600px] overflow-y-auto no-scrollbar">
+          <h2 className=" flex items-center  justify-center bg-gray-700 text-lg font-semibold text-white ">
             Profiles
           </h2>
           <ProfileList
@@ -31,7 +31,8 @@ function Home() {
             onSelectLocation={handleSelectLocation}
           />
         </div>
-        <div className="bg-gray-800 p-4 rounded-xl shadow-md h-[600px] md:h-[600px] basis-3/5 text-white font-semibold text-1.8">
+
+        <div className="bg-gray-800 p-3 rounded-xl shadow-md h-[600px] w-[800px] text-white font-semibold basis-4/6">
           <GoogleMap selectedLocation={selectedLocation} />
         </div>
       </div>

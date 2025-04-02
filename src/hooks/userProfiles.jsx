@@ -304,7 +304,25 @@ function userProfiles() {
     },
   ]);
 
-  return { profiles, setProfiles };
+  const addProfile = (newProfile) => {
+    const newId =
+      profiles.length > 0 ? Math.max(...profiles.map((p) => p.id)) + 1 : 1;
+    setProfiles([...profiles, { ...newProfile, id: newId }]);
+  };
+
+  const updateProfile = (id, updatedProfile) => {
+    setProfiles(
+      profiles.map((profile) =>
+        profile.id === id ? { ...profile, ...updatedProfile, id } : profile
+      )
+    );
+  };
+
+  const deleteProfile = (id) => {
+    setProfiles(profiles.filter((profile) => profile.id !== id));
+  };
+
+  return { profiles, addProfile, updateProfile, deleteProfile };
 }
 
-export default userProfiles;
+export default useProfiles;
