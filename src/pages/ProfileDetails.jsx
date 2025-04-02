@@ -28,6 +28,44 @@ function ProfileDetails() {
           <p className="text-gray-400 mt-2">{profile.description}</p>
           <p className="text-gray-500 mt-2">{profile.address}</p>
         </div>
+        <div className="mt-6">
+          <h2 className="text-xl font-semibold">Contact Information</h2>
+          <p className="text-gray-400 mt-2">Email: {profile.email}</p>
+          <p className="text-gray-400">Phone: {profile.phone}</p>
+        </div>
+        <div className="mt-6">
+          <h2 className="text-xl font-semibold">Interests</h2>
+          <ul className="text-gray-400 mt-2 list-disc list-inside">
+            {profile.interests.map((interest, index) => (
+              <li key={index}>{interest}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-6">
+          <h2 className="text-xl font-semibold">Social Links</h2>
+          <div className="flex justify-start mt-2 space-x-4">
+            {profile.socialLinks.linkedin && (
+              <a
+                href={profile.socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                LinkedIn
+              </a>
+            )}
+            {profile.socialLinks.twitter && (
+              <a
+                href={profile.socialLinks.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                Twitter
+              </a>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

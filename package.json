@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
     "@maptiler/sdk": "^3.0.2",
     "@react-google-maps/api": "^2.20.6",
     "@tailwindcss/vite": "^4.0.17",
     "@vis.gl/react-google-maps": "^1.5.2",
     "leaflet": "^1.9.4",
+    "lucide-react": "^0.486.0",
     "mapbox-gl": "^3.11.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

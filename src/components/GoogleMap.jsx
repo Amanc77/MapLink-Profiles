@@ -1,35 +1,54 @@
-import React, { useState, useRef } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import React, { useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-const GoogleMap = () => {
-  const [center, setCenter] = useState({ lat: 28.6139, lng: 77.209 });
-  const ZOOM_LEVEL = 12;
-  const mapRef = useRef();
+const customIcon = L.icon({
+  iconUrl: "/LocationIcon2.png",
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+});
 
-  const mapContainerStyle = {
-    height: "500px",
-    width: "100%",
-    borderRadius: "8px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    marginTop: "20px",
-  };
+function ChangeView({ center }) {
+  const map = useMap();
+  useEffect(() => {
+    if (center) {
+      map.setView([center.latitude, center.longitude], map.getZoom());
+    }
+  }, [center, map]);
+  return null;
+}
+
+const GoogleMap = ({ selectedLocation }) => {
+  const defaultCenter = { latitude: 28.6139, longitude: 77.209 }; // New Delhi
+  const center = selectedLocation || defaultCenter;
+  const ZOOM_LEVEL = 12;
 
   return (
     <div className="map-container">
-      <h2 style={{ textAlign: "center", marginBottom: "10px" }}>
-        React-Leaflet Map Centered on New Delhi
-      </h2>
       <MapContainer
-        center={center}
+        center={[center.latitude, center.longitude]}
         zoom={ZOOM_LEVEL}
-        ref={mapRef}
-        style={mapContainerStyle}
+        style={{
+          height: "500px",
+          width: "100%",
+          borderRadius: "8px",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+          marginTop: "20px",
+        }}
       >
+        <ChangeView center={center} />
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         />
+        <Marker
+          position={[center.latitude, center.longitude]}
+          icon={customIcon}
+        >
+          <Popup>{`Latitude: ${center.latitude}, Longitude: ${center.longitude}`}</Popup>
+        </Marker>
       </MapContainer>
     </div>
   );
