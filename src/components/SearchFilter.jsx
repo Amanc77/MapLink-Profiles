@@ -10,7 +10,7 @@ function SearchFilter({ onSearch }) {
   };
 
   return (
-    <div className="mb-2 sm:mb-4 md:mb-6 flex justify-center w-full px-2 sm:px-4 md:px-0">
+    <div className=" flex justify-center w-full px-2 sm:px-4 md:px-0">
       <input
         type="text"
         value={query}
