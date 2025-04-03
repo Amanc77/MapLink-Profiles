@@ -1,6 +1,5 @@
-// components/AppRoutes.jsx
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import ProfileDetails from "../pages/ProfileDetails";
 import EditProfile from "../pages/EditProfile";
@@ -11,16 +10,11 @@ const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Existing Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/profile/:id" element={<ProfileDetails />} />
-
-        {/* New Profile Management Routes */}
         <Route path="/edit-profile/:id" element={<EditProfile />} />
         <Route path="/add-profile" element={<AddProfile />} />
         <Route path="/delete-profile/:id" element={<DeleteProfile />} />
-
-        {/* Catch-all route for 404 */}
         <Route
           path="*"
           element={

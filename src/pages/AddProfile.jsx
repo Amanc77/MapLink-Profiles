@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useProfiles from "../hooks/userProfiles";
+import { useProfiles } from "../context/ProfileContext"; // Updated import
 
 function AddProfile() {
   const navigate = useNavigate();
@@ -14,14 +14,18 @@ function AddProfile() {
     phone: "",
     interests: [],
     socialLinks: { linkedin: "", twitter: "" },
-    location: { latitude: 0, longitude: 0 }, // Added to match existing data structure
+    location: { latitude: 0, longitude: 0 },
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addProfile(formData);
-    alert("Profile added successfully!");
-    navigate("/");
+    const result = addProfile(formData);
+    if (result.success) {
+      alert("Profile added successfully!");
+      navigate(`/profile/${result.id}`);
+    } else {
+      alert(`Error adding profile: ${result.error}`);
+    }
   };
 
   const handleChange = (e) => {
@@ -31,6 +35,15 @@ function AddProfile() {
       setFormData({
         ...formData,
         socialLinks: { ...formData.socialLinks, [socialKey]: value },
+      });
+    } else if (name.includes("location.")) {
+      const locationKey = name.split(".")[1];
+      setFormData({
+        ...formData,
+        location: {
+          ...formData.location,
+          [locationKey]: parseFloat(value) || 0,
+        },
       });
     } else {
       setFormData({ ...formData, [name]: value });
@@ -48,6 +61,7 @@ function AddProfile() {
             onChange={handleChange}
             placeholder="Name"
             className="w-full p-2 rounded bg-gray-700 text-white"
+            required
           />
           <input
             name="description"
@@ -75,7 +89,9 @@ function AddProfile() {
             value={formData.email}
             onChange={handleChange}
             placeholder="Email"
+            type="email"
             className="w-full p-2 rounded bg-gray-700 text-white"
+            required
           />
           <input
             name="phone"
@@ -96,6 +112,24 @@ function AddProfile() {
             value={formData.socialLinks.twitter}
             onChange={handleChange}
             placeholder="Twitter URL"
+            className="w-full p-2 rounded bg-gray-700 text-white"
+          />
+          <input
+            name="location.latitude"
+            value={formData.location.latitude}
+            onChange={handleChange}
+            placeholder="Latitude"
+            type="number"
+            step="any"
+            className="w-full p-2 rounded bg-gray-700 text-white"
+          />
+          <input
+            name="location.longitude"
+            value={formData.location.longitude}
+            onChange={handleChange}
+            placeholder="Longitude"
+            type="number"
+            step="any"
             className="w-full p-2 rounded bg-gray-700 text-white"
           />
           <button

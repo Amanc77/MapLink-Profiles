@@ -1,7 +1,6 @@
-// src/pages/DeleteProfile.jsx
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useProfiles from "../hooks/userProfiles";
+import { useProfiles } from "../context/ProfileContext";
 
 function DeleteProfile() {
   const { id } = useParams();
@@ -20,9 +19,13 @@ function DeleteProfile() {
   }
 
   const handleDelete = () => {
-    deleteProfile(parseInt(id));
-    alert("Profile deleted successfully!");
-    navigate("/");
+    const result = deleteProfile(parseInt(id));
+    if (result.success) {
+      alert("Profile deleted successfully!");
+      navigate("/"); // Redirect to home after deletion
+    } else {
+      alert(`Error deleting profile: ${result.error}`);
+    }
   };
 
   const handleCancel = () => {

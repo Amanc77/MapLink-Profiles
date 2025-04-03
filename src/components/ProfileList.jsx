@@ -1,9 +1,9 @@
 import React from "react";
-import userProfiles from "../hooks/userProfiles";
+import { useProfiles } from "../context/ProfileContext";
 import ProfileCard from "./ProfileCard";
 
 function ProfileList({ searchQuery, onSelectLocation }) {
-  const { profiles } = userProfiles();
+  const { profiles } = useProfiles();
 
   if (!profiles || profiles.length === 0) {
     return <div>Loading profiles...</div>;
@@ -17,8 +17,8 @@ function ProfileList({ searchQuery, onSelectLocation }) {
     : profiles;
 
   return (
-    <div className="  w-full">
-      <div className="p-4 grid grid-cols-1  gap-x-10 gap-y-10">
+    <div className="w-full">
+      <div className="p-4 grid grid-cols-1 gap-x-10 gap-y-10">
         {filteredProfiles.map((profile) => (
           <ProfileCard
             key={profile.id}

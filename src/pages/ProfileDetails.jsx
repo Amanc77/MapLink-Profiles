@@ -1,7 +1,6 @@
-// src/pages/ProfileDetails.jsx
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useProfiles from "../hooks/userProfiles";
+import { useProfiles } from "../context/ProfileContext";
 
 function ProfileDetails() {
   const { id } = useParams();

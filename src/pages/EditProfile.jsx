@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useProfiles from "../hooks/userProfiles";
-
+import { useProfiles } from "../context/ProfileContext";
 function EditProfile() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { profiles, updateProfile } = useProfiles();
   const profile = profiles.find((p) => p.id === parseInt(id));
 
-  const [formData, setFormData] = useState(profile || {});
+  const [formData, setFormData] = useState({ ...profile } || {});
 
   if (!profile) {
     return (
@@ -22,9 +21,13 @@ function EditProfile() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateProfile(parseInt(id), formData);
-    alert("Profile updated successfully!");
-    navigate(`/profile/${id}`);
+    const result = updateProfile(parseInt(id), formData);
+    if (result.success) {
+      alert("Profile updated successfully!");
+      navigate(`/profile/${id}`);
+    } else {
+      alert(`Error updating profile: ${result.error}`);
+    }
   };
 
   const handleChange = (e) => {
@@ -34,6 +37,15 @@ function EditProfile() {
       setFormData({
         ...formData,
         socialLinks: { ...formData.socialLinks, [socialKey]: value },
+      });
+    } else if (name.includes("location.")) {
+      const locationKey = name.split(".")[1];
+      setFormData({
+        ...formData,
+        location: {
+          ...formData.location,
+          [locationKey]: parseFloat(value) || 0,
+        },
       });
     } else {
       setFormData({ ...formData, [name]: value });
@@ -51,6 +63,7 @@ function EditProfile() {
             onChange={handleChange}
             placeholder="Name"
             className="w-full p-2 rounded bg-gray-700 text-white"
+            required
           />
           <input
             name="description"
@@ -78,7 +91,9 @@ function EditProfile() {
             value={formData.email}
             onChange={handleChange}
             placeholder="Email"
+            type="email"
             className="w-full p-2 rounded bg-gray-700 text-white"
+            required
           />
           <input
             name="phone"
@@ -99,6 +114,24 @@ function EditProfile() {
             value={formData.socialLinks.twitter}
             onChange={handleChange}
             placeholder="Twitter URL"
+            className="w-full p-2 rounded bg-gray-700 text-white"
+          />
+          <input
+            name="location.latitude"
+            value={formData.location.latitude}
+            onChange={handleChange}
+            placeholder="Latitude"
+            type="number"
+            step="any"
+            className="w-full p-2 rounded bg-gray-700 text-white"
+          />
+          <input
+            name="location.longitude"
+            value={formData.location.longitude}
+            onChange={handleChange}
+            placeholder="Longitude"
+            type="number"
+            step="any"
             className="w-full p-2 rounded bg-gray-700 text-white"
           />
           <button
