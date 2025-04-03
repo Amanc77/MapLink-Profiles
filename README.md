@@ -1,12 +1,66 @@
-# React + Vite
+# Bynry Case Study
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive profile management application built with React and Vite.
 
-Currently, two official plugins are available:
+This project is a profile management application built with React and Vite, featuring a responsive design with Tailwind CSS and navigation via React Router. It allows users to view, add, edit, and delete profiles, with state management handled by React Context API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- View a list of profiles with search functionality
+- Add, edit, and delete profiles with detailed fields (name, email, image, etc.)
+- Responsive design for mobile, tablet, and desktop
+- Optional location mapping with Google Maps (requires API key)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- **Frontend:** React
+- **Build Tool:** Vite with HMR (Hot Module Replacement)
+- **Styling:** Tailwind CSS
+- **Routing:** React Router
+- **State Management:** React Context API
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or later)
+- npm (v7 or later)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Amanc77/bynry-CaseStudy.git
+   cd bynry-CaseStudy
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open `http://localhost:5173` in your browser to view the app.
+
+## Available Scripts
+
+- `npm run dev`: Starts the development server with HMR
+- `npm run build`: Builds the app for production
+- `npm run lint`: Runs ESLint to check for code quality issues
+- `npm run preview`: Previews the production build locally
+
+## Project Structure
+
+- `src/components/`: Reusable components (e.g., `ProfileCard.jsx`, `ProfileList.jsx`)
+- `src/pages/`: Page components (e.g., `AddProfile.jsx`, `ProfileDetails.jsx`)
+- `src/context/`: React Context for state management (`ProfileContext.jsx`)
+- `src/assets/`: Static assets (e.g., images)
+- `src/App.jsx`: Main app component
+- `src/main.jsx`: Entry point
+
+
+## Contact
+
+- **Author:** Aman (Amanc77)
+- **GitHub:** [https://github.com/Amanc77](https://github.com/Amanc77)
