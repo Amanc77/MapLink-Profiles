@@ -19,11 +19,17 @@ function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-gray-900 min-h-screen p-6">
-      <SearchFilter onSearch={handleSearch} />
-      <div className="flex w-full  gap-6">
-        <div className="relative bg-gray-700 p-4 rounded-xl shadow-md basis-2/6 h-[600px] overflow-y-auto no-scrollbar">
-          <h2 className=" flex items-center  justify-center bg-gray-700 text-lg font-semibold text-white ">
+    <div className="flex flex-col bg-gray-900 min-h-screen h-full p-4 sm:p-6">
+      {/* Search Bar - Full width and responsive */}
+      <div className="w-full   max-w-4xl mx-auto">
+        <SearchFilter onSearch={handleSearch} />
+      </div>
+
+      {/* Main Content - Column on mobile, row on desktop */}
+      <div className="flex flex-col lg:flex-row w-full gap-6 sm:gap-8">
+        {/* Profile List - Second on mobile, first on desktop */}
+        <div className="order-2 lg:order-1 relative bg-gray-700 p-3 sm:p-4 rounded-xl shadow-md w-full lg:basis-2/6 h-[300px] sm:h-[1000px] lg:h-[600px] overflow-y-auto no-scrollbar">
+          <h2 className="flex items-center justify-center bg-gray-700 text-base sm:text-lg font-semibold text-white mb-2 sm:mb-4 ">
             Profiles
           </h2>
           <ProfileList
@@ -32,7 +38,8 @@ function Home() {
           />
         </div>
 
-        <div className="bg-gray-800 p-3 rounded-xl shadow-md h-[600px] w-[800px] text-white font-semibold basis-4/6">
+        {/* Google Map - First on mobile, second on desktop */}
+        <div className="order-1 lg:order-2 bg-gray-800 rounded-xl shadow-md w-full lg:basis-4/6 h-[250px] sm:h-[350px] lg:h-[600px] text-white font-semibold overflow-hidden">
           <GoogleMap selectedLocation={selectedLocation} />
         </div>
       </div>

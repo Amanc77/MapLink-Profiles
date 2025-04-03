@@ -18,7 +18,7 @@ function ProfileList({ searchQuery, onSelectLocation }) {
 
   return (
     <div className="w-full">
-      <div className="p-4 grid grid-cols-1 gap-x-10 gap-y-10">
+      <div className="p-4 grid grid-cols-1 gap-x-10 gap-y-4">
         {filteredProfiles.map((profile) => (
           <ProfileCard
             key={profile.id}

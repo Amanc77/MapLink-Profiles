@@ -26,17 +26,17 @@ const GoogleMap = ({ selectedLocation }) => {
   const ZOOM_LEVEL = 12;
 
   return (
-    <div className="map-container">
+    <div className="w-full h-full">
       <MapContainer
         center={[center.latitude, center.longitude]}
         zoom={ZOOM_LEVEL}
         style={{
-          height: "500px",
+          height: "100%", // Use 100% to take the full height of the parent
           width: "100%",
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-          marginTop: "20px",
         }}
+        className="rounded-lg sm:rounded-xl"
       >
         <ChangeView center={center} />
         <TileLayer
