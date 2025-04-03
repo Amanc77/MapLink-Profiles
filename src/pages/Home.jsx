@@ -28,7 +28,7 @@ function Home() {
       {/* Main Content - Column on mobile, row on desktop */}
       <div className="flex flex-col lg:flex-row w-full gap-6 sm:gap-8">
         {/* Profile List - Second on mobile, first on desktop */}
-        <div className="order-2 lg:order-1 relative bg-gray-700 p-3 sm:p-4 rounded-xl shadow-md w-full lg:basis-2/6 h-[300px] sm:h-[1000px] lg:h-[600px] overflow-y-auto no-scrollbar">
+        <div className="order-2 lg:order-1 relative bg-gray-700 p-3 sm:p-4 rounded-xl shadow-md w-full lg:basis-2/6 h-[600px] sm:h-[1000px] lg:h-[600px] overflow-y-auto no-scrollbar">
           <h2 className="flex items-center justify-center bg-gray-700 text-base sm:text-lg font-semibold text-white   ">
             Profiles
           </h2>

@@ -4,20 +4,24 @@ import { MapPin } from "lucide-react";
 
 function ProfileCard({ profile, onSelectLocation }) {
   return (
-    <div className="bg-gray-800 text-white rounded-lg p-3  shadow-lg hover:scale-105 transition-transform duration-300 border border-gray-700 flex flex-col sm:flex-row items-start sm:items-center overflow-y-auto  w-full">
+    <div
+      className="bg-gray-800 text-white rounded-lg p-3  shadow-lg hover:scale-105 transition-transform duration-300 border border-gray-700
+    flex flex-row  gap-5
+    overflow-y-auto  w-full  "
+    >
       {/* Image Section */}
-      <div className="mb-3 sm:mb-0 sm:mr-4 flex-shrink-0">
+      <div className="mb-3 sm:mb-0 sm:mr-4 flex justify-center items-center ">
         <Link to={`/profile/${profile.id}`}>
           <img
             src={profile.image}
             alt={profile.name}
-            className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-full border-2 border-gray-600"
+            className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full border-2 border-gray-600 "
           />
         </Link>
       </div>
 
       {/* Text and Button Section */}
-      <div className="flex-1 flex flex-col w-full">
+      <div className="flex-1 flex flex-col w-full ">
         <div className="mb-2 sm:mb-3">
           <h2 className="text-base sm:text-lg font-semibold">{profile.name}</h2>
           <p className="text-gray-400 text-xs sm:text-sm line-clamp-2">

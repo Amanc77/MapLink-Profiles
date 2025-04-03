@@ -23,7 +23,7 @@ function ProfileDetails() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 py-6 px-4 sm:py-12">
       <div className="max-w-4xl mx-auto bg-gray-800 rounded-xl shadow-2xl overflow-hidden relative w-full">
-        <div className="bg-gradient-to-r from-blue-300 to-indigo-600 p-4 sm:p-6">
+        <div className="bg-gradient-to-r from-gray-800 to-blue-400 p-4 sm:p-6">
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
             <img
               src={profile.image}
