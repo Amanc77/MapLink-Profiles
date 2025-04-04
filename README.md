@@ -2,7 +2,11 @@
 
 A responsive profile management application built with React and Vite.
 
-# Video: [Screencast from 03-04-25 01:09:22 PM IST.webm](https://github.com/user-attachments/assets/e3a69b46-1b2a-4d72-837e-cc5c581d8782)
+# 🌐 Live Demo:-
+Check out the live version of this project: [MapLinkProfiles](https://maplinkprofiles.netlify.app/)
+
+# 📹 Video Demo:- [Watch the video](https://www.youtube.com/watch?v=MzmUsGqmy0M)
+
 
 This project is a profile management application built with React and Vite, featuring a responsive design with Tailwind CSS and navigation via React Router. It allows users to view, add, edit, and delete profiles, with state management handled by React Context API.
 
