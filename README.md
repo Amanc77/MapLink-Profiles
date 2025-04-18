@@ -1,51 +1,54 @@
-# Bynry Case Study
+# 📍 MapLink-Profiles
 
 A responsive profile management application built with React and Vite.
+
 
 # 🌐 Live Demo:- [MapLinkProfiles](https://maplinkprofiles.netlify.app/)
 
 # 📹 Video Demo:- [Watch the video](https://www.youtube.com/watch?v=MzmUsGqmy0M)
+---
 
+## 🧩 Overview
 
-This project is a profile management application built with **React** and **Vite**, featuring a responsive design using **Tailwind CSS** and navigation via **React Router**. It allows users to **view, add, edit, and delete profiles**, with state management handled by **React Context API**.
+**MapLink-Profiles** is a profile management application built using **React** and **Vite**, styled with **Tailwind CSS**, and powered by **React Router** and **Context API** for navigation and state handling. It supports full CRUD operations and features optional **Google Maps integration** for geolocation tagging.
+
+🎨 The UI was designed and built entirely from scratch, focusing on clean layout, responsive design, and intuitive user interactions.
 
 ---
 
 ## 🚀 Features
 
-- ✅ View a list of profiles with search functionality  
-- ➕ Add, ✏️ Edit, 🗑️ Delete profiles with detailed fields (name, email, image, etc.)  
-- 📱 Responsive design for mobile, tablet, and desktop  
-- 🗺️ Optional location mapping with Google Maps (requires API key)  
+- 🔍 Search profiles by name or location  
+- ➕ Add new profiles  
+- ✏️ Edit existing profiles  
+- 🗑️ Delete profiles  
+- 📱 Fully responsive (mobile-first)  
+- 🗺️ Optional integration with Google Maps for location display  
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React  
-- **Build Tool**: Vite with HMR (Hot Module Replacement)  
-- **Styling**: Tailwind CSS  
-- **Routing**: React Router  
-- **State Management**: React Context API  
+- **Frontend**: React (with Hooks & Context)
+- **Build Tool**: Vite (with HMR)
+- **Styling**: Tailwind CSS
+- **Routing**: React Router DOM
+- **Maps**: Google Maps API *(optional)*
 
----
-
-## 🧰 Getting Started
+## 📦 Installation
 
 ### ✅ Prerequisites
+- Node.js (v16 or later)
+- npm (v7 or later)
 
-- Node.js (v16 or later)  
-- npm (v7 or later)  
+### 🔧 Setup
 
----
-
-### 📦 Installation
-
-#### Clone the repository:
 ```bash
-git clone https://github.com/Amanc77/bynry-CaseStudy.git
-cd bynry-CaseStudy
-```
+# Clone the repo
+git clone https://github.com/Amanc77/MapLink-Profiles.git
+cd MapLink-Profiles
+
+
 
 #### Install dependencies:
 ```bash
